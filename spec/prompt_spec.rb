@@ -16,6 +16,28 @@ describe GabbyPrompt do
     end
   end
 
+   it "displays down arrow when there are subfolders" do
+      Dir.mktmpdir do |dir|
+        Dir.chdir(dir) do
+          # Create subfolders
+          FileUtils.mkdir_p(File.join(dir, "subfolder"))
+
+          # Assert arrow
+          expect(subject.arrow_direction).to eq("↓")
+        end
+      end
+    end
+
+   it "displays up arrow when there are no subfolders" do
+      Dir.mktmpdir do |dir|
+        Dir.chdir(dir) do
+          # Assert arrow
+          expect(subject.arrow_direction).to eq("↑")
+        end
+      end
+    end
+
+
   it "shows you the git branch" do
    Dir.mktmpdir do |dir|
       Dir.chdir(dir) do

@@ -16,6 +16,17 @@ class GabbyPrompt
     Dir.pwd
   end
 
+  def arrow_direction
+    if has_subfolders?
+      "↓"
+    else
+      "↑"
+    end
+  end
+
+  def has_subfolders?
+  end
+
   def git_branch
     branch = `git rev-parse --abbrev-ref HEAD`.chomp
     branch
