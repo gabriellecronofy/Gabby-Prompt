@@ -22,7 +22,6 @@ describe GabbyPrompt do
           # Create subfolders
           FileUtils.mkdir_p(File.join(dir, "subfolder"))
 
-          # Assert arrow
           expect(subject.arrow_direction).to eq("↓")
         end
       end
@@ -31,7 +30,6 @@ describe GabbyPrompt do
    it "displays up arrow when there are no subfolders" do
       Dir.mktmpdir do |dir|
         Dir.chdir(dir) do
-          # Assert arrow
           expect(subject.arrow_direction).to eq("↑")
         end
       end
